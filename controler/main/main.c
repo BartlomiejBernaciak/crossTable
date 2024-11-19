@@ -41,7 +41,6 @@ void joy_task(){
 
     while(1){
             
-        joy_proces();
         ESP_LOGI(TAG,"working");
         vTaskDelay(100);
                  

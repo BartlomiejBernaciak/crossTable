@@ -21,11 +21,20 @@ typedef enum{
 }joy_btn;
 
 typedef struct{
-    uint16_t 
+    uint16_t axies;
+    uint8_t buttons;
+}joy_frame;
 
+typedef struct{
+    uint16_t axies[3];
+    uint8_t buttons;
+    void *getAxis;
+    void *getButtons;
+    void (*sendData)(joy_frame *);
 }joy_h;
 
-
+void joy_process(joy_h *h);
+void joy_init(joy_h *h);
 
 
 #endif
