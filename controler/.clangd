@@ -1,0 +1,17 @@
+CompileFlags:
+  CompilationDatabase: build
+  Add: [
+    -I$IDF_PATH/components/freertos/include,
+    -I$IDF_PATH/components/esp_system/include,
+    -I$IDF_PATH/components/esp32/include,
+    -I$IDF_PATH/components/driver/include,
+    -isysroot=/home/bartek.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp-elf,
+    -target, xtensa-esp32-elf  
+]
+  Remove: [-m*,
+        -f*,
+      -fno-tree-switch-conversion, 
+      -mtext-section-literals, 
+      -fstrict-volatile-bitfields
+  ]
+

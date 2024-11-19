@@ -14,9 +14,7 @@
 #include "esp_system.h"
 #include "esp_log.h"
 #include "string.h"
-
-
-
+#include "joy.h"
 
 /**
  * @brief This is takk responsable for displaying menu on the screen
@@ -28,8 +26,6 @@
 void lcd_task(){
 
 }
-
-
 /**
     *   this will be task function that  is respononcability to 
     *   @brief - 
@@ -37,7 +33,16 @@ void lcd_task(){
     */
 
 void joy_task(){
-
+    
+    static const char *TAG = "JOY_TASK";
+    ESP_LOGI(TAG,"STARTING JOY TASK");
+    
+    while(1){
+        
+        ESP_LOGI(TAG,"working");
+        vTaskDelay(100);
+                 
+    }
 
 
 
@@ -48,7 +53,7 @@ void app_main(void)
 {
     
     ESP_LOGI(TAG, "Starting controler");
-    
+    xTaskCreate(joy_task,"JOY_TASK",2048,NULL,0,0);      
 
     
 
