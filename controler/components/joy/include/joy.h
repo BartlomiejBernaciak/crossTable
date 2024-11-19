@@ -7,8 +7,6 @@ typedef enum{
     x_axis,
     y_axis,
     z_axis,
-    w_axis,
-    e_axis,
 }joy_axis;
 
 typedef enum{
@@ -22,27 +20,11 @@ typedef enum{
     arrow_left,
 }joy_btn;
 
-typedef enum {
-    WAIT,
-    BUTTON_EVENT,
-    ADC_UPDATE,
+typedef struct{
+    uint16_t 
 
-}joy_state;
-
-typedef struct {
-
-    int32_t axis[5];
-    uint8_t button[8];     
-    void (*process)(joy_state); //adc update and 
-    //
 }joy_h;
 
-void set_axis(joy_h *h, joy_axis axis);
-void get_axis(joy_axis axis);
-
-void get_btn(joy_h *h, joy_btn);
-void set_btn(joy_h *h, joy_btn);
-void process(joy_state);
 
 
 

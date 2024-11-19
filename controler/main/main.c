@@ -17,6 +17,7 @@
 #include "joy.h"
 
 /**
+e will get back to you as soon as possible.
  * @brief This is takk responsable for displaying menu on the screen
  *
  *
@@ -31,19 +32,20 @@ void lcd_task(){
     *   @brief - 
     *
     */
-
-void joy_task(){
     
+void joy_task(){
+        
     static const char *TAG = "JOY_TASK";
     ESP_LOGI(TAG,"STARTING JOY TASK");
-    
+
+
     while(1){
-        
+            
+        joy_proces();
         ESP_LOGI(TAG,"working");
         vTaskDelay(100);
                  
     }
-
 
 
 }
@@ -54,7 +56,6 @@ void app_main(void)
     
     ESP_LOGI(TAG, "Starting controler");
     xTaskCreate(joy_task,"JOY_TASK",2048,NULL,0,0);      
-
-    
+  
 
 }
