@@ -34,11 +34,10 @@ void lcd_task(){
     */
     
 void joy_task(){
-        
     static const char *TAG = "JOY_TASK";
     ESP_LOGI(TAG,"STARTING JOY TASK");
 
-
+     
     while(1){
             
         ESP_LOGI(TAG,"working");
@@ -50,11 +49,13 @@ void joy_task(){
 }
 
 static const char *TAG = "Main";
+
+joy_h joy;
+
 void app_main(void)
 {
-    
     ESP_LOGI(TAG, "Starting controler");
+    joy_init(&joy);
     xTaskCreate(joy_task,"JOY_TASK",2048,NULL,0,0);      
-  
 
 }

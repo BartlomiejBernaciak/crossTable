@@ -3,22 +3,18 @@
 
 #include "inttypes.h"
 
-typedef enum{ 
-    x_axis,
-    y_axis,
-    z_axis,
-}joy_axis;
-
-typedef enum{
-    trigger,
-    left,
-    rignt,
-    side,
-    arrow_up,
-    arrow_down,
-    arrow_rignt,
-    arrow_left,
-}joy_btn;
+#define ADC_X_PIN 36
+#define ADC_Y_PIN 37
+#define ADC_Z_PIN 38
+    
+#define ADC_TRIGGER_PIN 25
+#define ADC_LEFT_PIN 26
+#define ADC_RIGHT_PIN 27
+#define ADC_SIDE_PIN 32
+#define ADC_ARROW_UP_PIN 35
+#define ADC_ARROW_DOWN_PIN 34
+#define ADC_ARROW_RIGHT_PIN 38
+#define ADC_ARROW_LEFT_PIN 39
 
 typedef struct{
     uint16_t axies;
