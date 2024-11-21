@@ -36,14 +36,29 @@ void gpio_init(){
 }
 
 
-void adc_init(){
+void adc_init(joy_h *h){
 
     ESP_LOGI(TAG,"initialing adc for joy");
-    adc_continuous_config_t adc_config = {
-        
-
+    adc_continuous_handle_t adc_handle = NULL;
+    
+    adc_continuous_handle_cfg_t adc_config = {
+        .max_store_buf_size = 256,
+        .conv_frame_size = 10,
     };
 
+    ESP_ERROR_CHECK(adc_continuous_new_handle(&adc_config,&adc_handle)); 
+   
+    adc_continuous_config_t dig_config = {
+        .sample_freq_hz = 10*1000,
+        .conv_mode = ADC_CONV_SINGLE_UNIT_1,
+        .format = ADC_DIGI_OUTPUT_FORMAT_TYPE1,
+    };
+    
+    adc_digi_pattern_config_t adc_pattern[3] = {0};
+    
+    for(uint8_t i = 0;i<3;i++){
+        adc_pattern[i].atenn = 
+    }
 
 
 }
@@ -53,7 +68,7 @@ void adc_init(){
 void joy_init(joy_h *h){
 
     gpio_init();
-    adc_init();
+    adc_init(h->adc_handle);
 
 
 }

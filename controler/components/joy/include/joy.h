@@ -2,6 +2,8 @@
 #define JOY_H
 
 #include "inttypes.h"
+#include "esp_adc/adc_continuous.h"
+
 
 #define ADC_X_PIN 36
 #define ADC_Y_PIN 37
@@ -27,6 +29,8 @@ typedef struct{
     void *getAxis;
     void *getButtons;
     void (*sendData)(joy_frame *);
+    adc_continuous_handle_t *adc_handle;
+
 }joy_h;
 
 void joy_process(joy_h *h);
